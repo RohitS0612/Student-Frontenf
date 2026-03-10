@@ -99,14 +99,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth="lg" sx={{ py: 4 }}>
-        <Box sx={{ mb: 4 }}>
-          <Typography variant="h4" gutterBottom>
-            Students Management
-          </Typography>
-          <Typography variant="subtitle1">
-            {students.length} students
-          </Typography>
-        </Box>
+       
 
         <StudentForm 
           onAdd={addStudent} 
