@@ -18,6 +18,7 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import StudentForm from './components/StudentForm';
 import StudentsTable from './components/StudentsTable';
 import DeleteDialog from './components/DeleteDialog';
+import EditModal from './components/EditModal';
 import { useStudents } from './hooks/useStudents';
 import './App.css';
 
@@ -61,6 +62,7 @@ const theme = createTheme({
 
 function App() {
   const {
+    students,
     filteredStudents,
     loading,
     searchTerm,
@@ -97,19 +99,29 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth="lg" className="app-container">
-  
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Box sx={{ mb: 4 }}>
+          <Typography variant="h4" gutterBottom>
+            Students Management
+          </Typography>
+          <Typography variant="subtitle1">
+            {students.length} students
+          </Typography>
+        </Box>
 
         <StudentForm 
           onAdd={addStudent} 
-          onUpdate={updateStudent}
-          editData={editStudent}
-          onCancel={() => setEditStudent(null)}
           notify={notify} 
         />
 
-       
-        <Box className="toolbar-row">
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: 'space-between', 
+          alignItems: 'center', 
+          mb: 2,
+          flexWrap: 'wrap',
+          gap: 2
+        }}>
           <TextField
             placeholder="Search by name, email or age..."
             size="small"
@@ -135,7 +147,6 @@ function App() {
           </Button>
         </Box>
 
-       
         <StudentsTable
           students={filteredStudents}
           loading={loading}
@@ -147,7 +158,14 @@ function App() {
           setRowsPerPage={setRowsPerPage}
         />
 
-        
+        <EditModal
+          open={Boolean(editStudent)}
+          student={editStudent}
+          onClose={() => setEditStudent(null)}
+          onUpdate={updateStudent}
+          notify={notify}
+        />
+
         <DeleteDialog
           open={Boolean(deleteTarget)}
           student={deleteTarget}
