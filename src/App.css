@@ -1,0 +1,59 @@
+:root {
+  --primary-color: #1976d2;
+  --bg-color: #f9fafb;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  font-family: 'Roboto', 'Inter', sans-serif;
+  color: #333;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.form-paper {
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  background-color: var(--white) !important;
+}
+
+.toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.table-paper {
+  background-color: var(--white) !important;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.empty-state {
+  padding: 3rem;
+  text-align: center;
+  color: #666;
+}
+
+/* Custom styles for MUI components if needed */
+.MuiButton-containedPrimary {
+  text-transform: none !important;
+  font-weight: 600 !important;
+}
+
+.MuiTextField-root {
+  background-color: var(--white);
+}
