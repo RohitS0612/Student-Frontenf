@@ -1,64 +1,62 @@
-# 🎓 Students Management App
+# Students Management System
 
-A modern, clean, and intuitive Student Management Application built with React 18, Vite, and Material UI. This app allows for full CRUD operations on student records, including search, pagination, and Excel export.
+A clean, professional Students Management application built with **React 18**, **Vite**, and **Material UI**. This application allows you to manage student records with full CRUD (Create, Read, Update, Delete) functionality and includes advanced features like real-time filtering and Excel export.
 
-## ✨ Features
+## 🚀 Features
 
-- **Add Student**: Quick-entry form with inline validation.
-- **Student List**: Beautifully styled table with Material UI.
-- **Live Search**: Filter students by Name, Email, or Age instantly.
-- **Edit/Update**: Update student records via a professional modal dialog.
-- **Delete**: Secure deletion with a confirmation dialog.
-- **Excel Export**: Export the entire student list to a `.xlsx` file.
-- **Responsive**: Fully functional on various screen sizes.
-- **Premium UI**: White theme with clean spacing and high-quality Material UI components.
+- **Dynamic Student Management**: Add, update, and delete student records with instant UI updates.
+- **Real-time Search Filter**: Filter the student list by name, email, or age instantly.
+- **Excel Export**: Download the entire student list as an `.xlsx` file for offline use.
+- **Responsive Table**: Paginated data table with customizable rows per page (5, 10, 25).
+- **Form Validation**: Clean, inline validation for all student fields (Name, Email, Age).
+- **Notifications**: Snackbar alerts for every action (success or error).
+- **Premium UI**: Minimalist white theme using Material UI with a professional aesthetic.
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: [React 18](https://react.dev/)
-- **Build Tool**: [Vite](https://vitejs.dev/)
-- **UI Framework**: [Material UI (v5)](https://mui.com/)
-- **API Client**: [Axios](https://axios-http.com/)
-- **Utilities**: [XLSX](https://www.npmjs.com/package/xlsx) for Excel exports
+- **Frontend**: React 18
+- **Build Tool**: Vite
+- **UI Framework**: Material UI (MUI)
+- **HTTP Client**: Axios
+- **Excel Library**: xlsx
+- **Icons**: MUI Icons
 
-## 🚀 Getting Started
+## ⚙️ Environment Configuration
 
-### Prerequisites
+The application is configured to communicate with a production backend. Create a `.env` file in the root directory with the following content:
 
-- Node.js (v16 or higher)
-- A running API server (default: `http://localhost:3000/api`)
+```env
+API_URL=https://student-backend-production-2228.up.railway.app/api
+```
 
-### Installation
+> [!NOTE]  
+> The `vite.config.js` is pre-configured to support the `API_` environment variable prefix.
 
-1. Install dependencies:
+## 📦 Installation & Setup
+
+1. **Clone the repository** (or copy the files).
+2. **Install dependencies**:
    ```bash
    npm install
    ```
-
-2. Configure environment:
-   Create a `.env` file in the root directory:
-   ```env
-   VITE_API_URL=http://localhost:3000/api
-   ```
-
-3. Run the development server:
+3. **Set up the environment**:
+   Create a `.env` file with the `API_URL` as shown above.
+4. **Run the development server**:
    ```bash
    npm run dev
    ```
+5. **Open the app**:
+   Navigate to the local URL provided by Vite (usually `http://localhost:5173`).
 
-## 📂 Project Structure
+## 📡 API Integration
 
-```text
-src/
-├── api/            # API service calls
-├── components/     # Reusable UI components
-├── hooks/          # Custom hooks (data management, form logic)
-├── App.jsx         # Main application layout
-└── main.jsx        # Entry point
-```
+The app uses the following endpoints:
 
-## 🎨 Theme Details
-- **Primary Color**: #1976d2 (Blue)
-- **Backgrounds**: #ffffff (Paper), #f9fafb (Page)
-- **Typography**: Roboto / Inter
+- **GET** `/students/all` - Fetch all students
+- **POST** `/students` - Create a new student
+- **PUT** `/students/:id` - Update an existing student record
+- **DELETE** `/students/:id` - Remove a student
 
+---
+
+*Built with ❤️ for student data management efficiency.*

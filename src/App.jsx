@@ -18,7 +18,6 @@ import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import StudentForm from './components/StudentForm';
 import StudentsTable from './components/StudentsTable';
 import DeleteDialog from './components/DeleteDialog';
-import EditModal from './components/EditModal';
 import { useStudents } from './hooks/useStudents';
 import './App.css';
 
@@ -111,6 +110,9 @@ function App() {
 
         <StudentForm 
           onAdd={addStudent} 
+          onUpdate={updateStudent}
+          editData={editStudent}
+          onCancel={() => setEditStudent(null)}
           notify={notify} 
         />
 
@@ -156,14 +158,6 @@ function App() {
           setPage={setPage}
           rowsPerPage={rowsPerPage}
           setRowsPerPage={setRowsPerPage}
-        />
-
-        <EditModal
-          open={Boolean(editStudent)}
-          student={editStudent}
-          onClose={() => setEditStudent(null)}
-          onUpdate={updateStudent}
-          notify={notify}
         />
 
         <DeleteDialog
